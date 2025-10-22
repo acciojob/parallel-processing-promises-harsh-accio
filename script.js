@@ -1,7 +1,6 @@
 //your JS code here. If required.
-  
 const output = document.getElementById("output");
-const btn = document.getElementById('download-image-button');
+const btn = document.getElementById('download-images-button');
 const loader = document.getElementById('loader')
 const images = [
   { url: "https://picsum.photos/id/237/200/300" },
@@ -21,7 +20,7 @@ const images = [
 
 
 function downloadImages(){
-	loader.style.display="block";
+loader.style.display="block";
 const p1 = downloadImage(images[0].url)
 const p2 = downloadImage(images[1].url)
 const p3 = downloadImage(images[2].url)
@@ -37,10 +36,8 @@ const p3 = downloadImage(images[2].url)
 }).catch((e)=>{
 	loader.style.display='none';
 	btn.style.display='none';	
-	const div = document.createElement('div');
-	div.id='error';
-	const body = document.querySelector('body');
-	div.innerText="Error";
-	body.appendChild(div);
+	const error = document.querySelector('#error');
+	error.innerText=e;
+	
 })
 }
